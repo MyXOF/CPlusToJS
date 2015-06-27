@@ -13,7 +13,7 @@ program
 	;
 
 declaration
-//gobal variable declaration
+//gobal variable declaration and init
 	: variable
 	{
 		System.out.println($variable.val+"\n");
@@ -30,6 +30,8 @@ declaration
 	}
 	;
 
+//unfinished
+//variable declable and init
 //type a,b=xxxx,c;
 variable returns [String val]
 @init{
@@ -74,6 +76,7 @@ var_assign returns [String val]
 	}
 	;
 
+//unfinished
 array_length returns [String val]
 @init{
 	$val = null;
@@ -203,12 +206,130 @@ stat returns [String val]
 @int{
 	$val = null;
 }
-	: 'if'
+	: ifStat
+	{
+		$val = $ifStat.val;
+	}
+	| forStat
+	{
+		$val = $forStat.val;
+	}
+	| whileStat
+	{
+		$val = $whileStat.val;
+	}
+	| returnStat
+	{
+		$val = $returnStat.val + "\n";
+	}
+	| expression ';'
+	{
+		$val = $expression.val + ";\n";
+	}
+	| ';'
+	{
+		$val = ";\n";
+	}
+	;
+
+ifStat returns [String val]
+@init{
+	$val = null;
+}
+	: 'if' '(' expression ')' statement elseStat
+	{
+		$val = "if (" + $expression.val + ")" + $statement.val + $elseStat.val;
+	}
+	;
+
+elseStat returns [String val]
+@init{
+	$val = null;
+}
+	: 'else' else_ifStat
+	{
+		$val = "else" + $else_ifStat.val;
+	}
+	|
 	{
 		$val = "";
 	}
 	;
 
+else_ifStat returns [String val]
+@init{
+	$val = null;
+}
+	: ifStat
+	{
+		$val = $ifStat.val;
+	}
+	| statement
+	{
+		$val = $statement.val;
+	}
+	;
+
+
+forStat returns [String val]
+@init{
+	$val = null;
+}
+	: 'for' '('a = expression ';' b = expression ';' c = expression ')' statement
+	{
+		$val = "for(" + $a.val + ";" + $b.val + ";" + $c.val + ")" + $statement.val + "\n";
+	}
+	;
+
+whileStat returns [String val]
+@init{
+	$val = null;
+}
+	: 'while' '(' expression ')' statement
+	{
+		$val = "while (" + $expression.val + ")" + $statement.val;
+	}
+	| 'do' statement 'while' '(' expression ')'
+	{
+		$val = "do" + $statement.val + "while (" + $expression.val + ")\n";
+	}
+	;
+
+returnStat returns [String val]
+@init{
+	$val = null;
+}
+	: 'return' expression ';'
+	{
+		$val = "return" + $expression.val + ";";
+	}
+	;
+
+
+statement returns [String val]
+@init{
+	$val = null;
+}
+	: '{' variablePart statPart '}'
+	{
+		$val = "{" + $variablePart.val + $statPart.val + "}";
+	}
+	| stat
+	{
+		$val = $stat.val;
+	}
+	;
+
+//unfinished
+expression returns [String val]
+@init{
+	$val = null;
+}
+	: ID
+	{
+		$val = "";
+	}
+	;
 
 
 type
