@@ -1,2 +1,0 @@
-int main(int low,char high);
-char sfa(int s,double d);
