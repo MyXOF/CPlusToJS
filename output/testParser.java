@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 /Users/xuyi/Downloads/ANTLR/test.g 2015-06-27 01:07:06
+// $ANTLR 3.5.1 /Users/xuyi/Downloads/ANTLR/test.g 2015-06-27 11:06:22
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -14,8 +14,8 @@ public class testParser extends DebugParser {
 	public static final String[] tokenNames = new String[] {
 		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "EXPONENT", "FLOAT", "HEX_DIGIT", 
 		"ID", "INT", "'('", "')'", "'*'", "','", "';'", "'='", "'['", "']'", "'char'", 
-		"'double'", "'float'", "'int'", "'long'", "'short'", "'void'", "'{'", 
-		"'}'"
+		"'double'", "'float'", "'if'", "'int'", "'long'", "'short'", "'void'", 
+		"'{'", "'}'"
 	};
 	public static final int EOF=-1;
 	public static final int T__9=9;
@@ -35,6 +35,7 @@ public class testParser extends DebugParser {
 	public static final int T__23=23;
 	public static final int T__24=24;
 	public static final int T__25=25;
+	public static final int T__26=26;
 	public static final int EXPONENT=4;
 	public static final int FLOAT=5;
 	public static final int HEX_DIGIT=6;
@@ -50,19 +51,19 @@ public class testParser extends DebugParser {
 
 
 	public static final String[] ruleNames = new String[] {
-		"invalidRule", "basicType", "synpred17_test", "synpred13_test", "variable", 
-		"synpred7_test", "synpred18_test", "synpred9_test", "type", "synpred14_test", 
-		"synpred15_test", "var_assign", "synpred16_test", "function_declaration", 
-		"function_parameters", "synpred12_test", "synpred21_test", "synpred10_test", 
-		"program", "synpred11_test", "declaration", "synpred1_test", "synpred20_test", 
-		"synpred3_test", "synpred4_test", "function_body", "array_length", "synpred2_test", 
-		"synpred8_test", "synpred6_test", "synpred22_test", "variablePart", "synpred5_test", 
-		"synpred19_test", "array_assign"
+		"invalidRule", "program", "synpred14_test", "synpred9_test", "function_declaration", 
+		"synpred10_test", "type", "synpred15_test", "function_body", "statPart", 
+		"array_assign", "synpred20_test", "variable", "declaration", "synpred21_test", 
+		"array_length", "synpred19_test", "synpred23_test", "synpred22_test", 
+		"variablePart", "basicType", "synpred8_test", "synpred4_test", "synpred5_test", 
+		"synpred16_test", "synpred17_test", "synpred7_test", "function_parameters", 
+		"synpred1_test", "synpred3_test", "synpred2_test", "stat", "synpred11_test", 
+		"synpred18_test", "synpred6_test", "synpred12_test", "var_assign", "synpred13_test"
 	};
 
 	public static final boolean[] decisionCanBacktrack = new boolean[] {
 		false, // invalid decision
-		false, true, false, false, false, false, false, false, false
+		false, true, false, false, false, false, false, false, false, false
 	};
 
  
@@ -129,7 +130,7 @@ public class testParser extends DebugParser {
 				try { dbg.enterDecision(1, decisionCanBacktrack[1]);
 
 				int LA1_0 = input.LA(1);
-				if ( ((LA1_0 >= 12 && LA1_0 <= 13)||(LA1_0 >= 17 && LA1_0 <= 23)) ) {
+				if ( ((LA1_0 >= 12 && LA1_0 <= 13)||(LA1_0 >= 17 && LA1_0 <= 19)||(LA1_0 >= 21 && LA1_0 <= 24)) ) {
 					alt1=1;
 				}
 
@@ -199,12 +200,12 @@ public class testParser extends DebugParser {
 		dbg.location(15, 0);
 
 		try {
-			// /Users/xuyi/Downloads/ANTLR/test.g:16:2: ( variable | function_declaration ';' | function_declaration function_body )
+			// /Users/xuyi/Downloads/ANTLR/test.g:17:2: ( variable | function_declaration ';' | function_declaration function_body )
 			int alt2=3;
 			try { dbg.enterDecision(2, decisionCanBacktrack[2]);
 
 			int LA2_0 = input.LA(1);
-			if ( ((LA2_0 >= 17 && LA2_0 <= 23)) ) {
+			if ( ((LA2_0 >= 17 && LA2_0 <= 19)||(LA2_0 >= 21 && LA2_0 <= 24)) ) {
 				int LA2_1 = input.LA(2);
 				if ( (synpred2_test()) ) {
 					alt2=1;
@@ -235,13 +236,13 @@ public class testParser extends DebugParser {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// /Users/xuyi/Downloads/ANTLR/test.g:16:4: variable
+					// /Users/xuyi/Downloads/ANTLR/test.g:17:4: variable
 					{
-					dbg.location(16,4);
-					pushFollow(FOLLOW_variable_in_declaration40);
+					dbg.location(17,4);
+					pushFollow(FOLLOW_variable_in_declaration41);
 					variable1=variable();
 					state._fsp--;
-					if (state.failed) return;dbg.location(17,2);
+					if (state.failed) return;dbg.location(18,2);
 					if ( state.backtracking==0 ) {
 							System.out.println(variable1+"\n");
 						}
@@ -250,14 +251,14 @@ public class testParser extends DebugParser {
 				case 2 :
 					dbg.enterAlt(2);
 
-					// /Users/xuyi/Downloads/ANTLR/test.g:20:4: function_declaration ';'
+					// /Users/xuyi/Downloads/ANTLR/test.g:22:4: function_declaration ';'
 					{
-					dbg.location(20,4);
-					pushFollow(FOLLOW_function_declaration_in_declaration48);
+					dbg.location(22,4);
+					pushFollow(FOLLOW_function_declaration_in_declaration50);
 					function_declaration2=function_declaration();
 					state._fsp--;
-					if (state.failed) return;dbg.location(20,25);
-					match(input,13,FOLLOW_13_in_declaration50); if (state.failed) return;dbg.location(21,2);
+					if (state.failed) return;dbg.location(22,25);
+					match(input,13,FOLLOW_13_in_declaration52); if (state.failed) return;dbg.location(23,2);
 					if ( state.backtracking==0 ) {
 							System.out.println(function_declaration2+";\n");
 						}
@@ -266,17 +267,17 @@ public class testParser extends DebugParser {
 				case 3 :
 					dbg.enterAlt(3);
 
-					// /Users/xuyi/Downloads/ANTLR/test.g:24:4: function_declaration function_body
+					// /Users/xuyi/Downloads/ANTLR/test.g:27:4: function_declaration function_body
 					{
-					dbg.location(24,4);
-					pushFollow(FOLLOW_function_declaration_in_declaration58);
+					dbg.location(27,4);
+					pushFollow(FOLLOW_function_declaration_in_declaration61);
 					function_declaration3=function_declaration();
 					state._fsp--;
-					if (state.failed) return;dbg.location(24,25);
-					pushFollow(FOLLOW_function_body_in_declaration60);
+					if (state.failed) return;dbg.location(27,25);
+					pushFollow(FOLLOW_function_body_in_declaration63);
 					function_body4=function_body();
 					state._fsp--;
-					if (state.failed) return;dbg.location(25,2);
+					if (state.failed) return;dbg.location(28,2);
 					if ( state.backtracking==0 ) {
 							System.out.println(function_declaration3+function_body4+"\n");
 						}
@@ -292,7 +293,7 @@ public class testParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(28, 1);
+		dbg.location(31, 1);
 
 		}
 		finally {
@@ -307,7 +308,7 @@ public class testParser extends DebugParser {
 
 
 	// $ANTLR start "variable"
-	// /Users/xuyi/Downloads/ANTLR/test.g:30:1: variable returns [String val] : ( type var_assign next_var= variable | ',' var_assign next_var= variable | type ID array_length array_assign next_var= variable | ',' ID array_length array_assign next_var= variable | ';' );
+	// /Users/xuyi/Downloads/ANTLR/test.g:34:1: variable returns [String val] : ( type var_assign next_var= variable | ',' var_assign next_var= variable | type ID array_length array_assign next_var= variable | ',' ID array_length array_assign next_var= variable | ';' );
 	public final String variable() throws RecognitionException {
 		String val = null;
 
@@ -328,10 +329,10 @@ public class testParser extends DebugParser {
 		try { dbg.enterRule(getGrammarFileName(), "variable");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(30, 0);
+		dbg.location(34, 0);
 
 		try {
-			// /Users/xuyi/Downloads/ANTLR/test.g:34:2: ( type var_assign next_var= variable | ',' var_assign next_var= variable | type ID array_length array_assign next_var= variable | ',' ID array_length array_assign next_var= variable | ';' )
+			// /Users/xuyi/Downloads/ANTLR/test.g:38:2: ( type var_assign next_var= variable | ',' var_assign next_var= variable | type ID array_length array_assign next_var= variable | ',' ID array_length array_assign next_var= variable | ';' )
 			int alt3=5;
 			try { dbg.enterDecision(3, decisionCanBacktrack[3]);
 
@@ -339,16 +340,16 @@ public class testParser extends DebugParser {
 			case 17:
 			case 18:
 			case 19:
-			case 20:
 			case 21:
 			case 22:
 			case 23:
+			case 24:
 				{
 				switch ( input.LA(2) ) {
 				case ID:
 					{
 					int LA3_4 = input.LA(3);
-					if ( ((LA3_4 >= 12 && LA3_4 <= 13)||(LA3_4 >= 17 && LA3_4 <= 23)) ) {
+					if ( ((LA3_4 >= 12 && LA3_4 <= 13)||(LA3_4 >= 17 && LA3_4 <= 19)||(LA3_4 >= 21 && LA3_4 <= 24)) ) {
 						alt3=1;
 					}
 					else if ( (LA3_4==15) ) {
@@ -378,10 +379,10 @@ public class testParser extends DebugParser {
 				case 17:
 				case 18:
 				case 19:
-				case 20:
 				case 21:
 				case 22:
 				case 23:
+				case 24:
 					{
 					alt3=1;
 					}
@@ -391,7 +392,7 @@ public class testParser extends DebugParser {
 					int LA3_6 = input.LA(3);
 					if ( (LA3_6==ID) ) {
 						int LA3_4 = input.LA(4);
-						if ( ((LA3_4 >= 12 && LA3_4 <= 13)||(LA3_4 >= 17 && LA3_4 <= 23)) ) {
+						if ( ((LA3_4 >= 12 && LA3_4 <= 13)||(LA3_4 >= 17 && LA3_4 <= 19)||(LA3_4 >= 21 && LA3_4 <= 24)) ) {
 							alt3=1;
 						}
 						else if ( (LA3_4==15) ) {
@@ -415,7 +416,7 @@ public class testParser extends DebugParser {
 						}
 
 					}
-					else if ( ((LA3_6 >= 12 && LA3_6 <= 13)||(LA3_6 >= 17 && LA3_6 <= 23)) ) {
+					else if ( ((LA3_6 >= 12 && LA3_6 <= 13)||(LA3_6 >= 17 && LA3_6 <= 19)||(LA3_6 >= 21 && LA3_6 <= 24)) ) {
 						alt3=1;
 					}
 
@@ -460,7 +461,7 @@ public class testParser extends DebugParser {
 					if ( (LA3_7==15) ) {
 						alt3=4;
 					}
-					else if ( ((LA3_7 >= 12 && LA3_7 <= 13)||(LA3_7 >= 17 && LA3_7 <= 23)) ) {
+					else if ( ((LA3_7 >= 12 && LA3_7 <= 13)||(LA3_7 >= 17 && LA3_7 <= 19)||(LA3_7 >= 21 && LA3_7 <= 24)) ) {
 						alt3=2;
 					}
 
@@ -481,7 +482,7 @@ public class testParser extends DebugParser {
 					}
 
 				}
-				else if ( ((LA3_2 >= 12 && LA3_2 <= 13)||(LA3_2 >= 17 && LA3_2 <= 23)) ) {
+				else if ( ((LA3_2 >= 12 && LA3_2 <= 13)||(LA3_2 >= 17 && LA3_2 <= 19)||(LA3_2 >= 21 && LA3_2 <= 24)) ) {
 					alt3=2;
 				}
 
@@ -519,21 +520,21 @@ public class testParser extends DebugParser {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// /Users/xuyi/Downloads/ANTLR/test.g:34:4: type var_assign next_var= variable
+					// /Users/xuyi/Downloads/ANTLR/test.g:38:4: type var_assign next_var= variable
 					{
-					dbg.location(34,4);
-					pushFollow(FOLLOW_type_in_variable83);
+					dbg.location(38,4);
+					pushFollow(FOLLOW_type_in_variable86);
 					type();
 					state._fsp--;
-					if (state.failed) return val;dbg.location(34,9);
-					pushFollow(FOLLOW_var_assign_in_variable85);
+					if (state.failed) return val;dbg.location(38,9);
+					pushFollow(FOLLOW_var_assign_in_variable88);
 					var_assign5=var_assign();
 					state._fsp--;
-					if (state.failed) return val;dbg.location(34,29);
-					pushFollow(FOLLOW_variable_in_variable91);
+					if (state.failed) return val;dbg.location(38,29);
+					pushFollow(FOLLOW_variable_in_variable94);
 					next_var=variable();
 					state._fsp--;
-					if (state.failed) return val;dbg.location(35,2);
+					if (state.failed) return val;dbg.location(39,2);
 					if ( state.backtracking==0 ) {
 							val = "var " + var_assign5 + next_var;
 						}
@@ -542,18 +543,18 @@ public class testParser extends DebugParser {
 				case 2 :
 					dbg.enterAlt(2);
 
-					// /Users/xuyi/Downloads/ANTLR/test.g:38:4: ',' var_assign next_var= variable
+					// /Users/xuyi/Downloads/ANTLR/test.g:42:4: ',' var_assign next_var= variable
 					{
-					dbg.location(38,4);
-					match(input,12,FOLLOW_12_in_variable99); if (state.failed) return val;dbg.location(38,8);
-					pushFollow(FOLLOW_var_assign_in_variable101);
+					dbg.location(42,4);
+					match(input,12,FOLLOW_12_in_variable102); if (state.failed) return val;dbg.location(42,8);
+					pushFollow(FOLLOW_var_assign_in_variable104);
 					var_assign6=var_assign();
 					state._fsp--;
-					if (state.failed) return val;dbg.location(38,27);
-					pushFollow(FOLLOW_variable_in_variable105);
+					if (state.failed) return val;dbg.location(42,27);
+					pushFollow(FOLLOW_variable_in_variable108);
 					next_var=variable();
 					state._fsp--;
-					if (state.failed) return val;dbg.location(39,2);
+					if (state.failed) return val;dbg.location(43,2);
 					if ( state.backtracking==0 ) {
 							val = ", "+ var_assign6 + next_var;
 						}
@@ -562,26 +563,26 @@ public class testParser extends DebugParser {
 				case 3 :
 					dbg.enterAlt(3);
 
-					// /Users/xuyi/Downloads/ANTLR/test.g:42:4: type ID array_length array_assign next_var= variable
+					// /Users/xuyi/Downloads/ANTLR/test.g:46:4: type ID array_length array_assign next_var= variable
 					{
-					dbg.location(42,4);
-					pushFollow(FOLLOW_type_in_variable113);
+					dbg.location(46,4);
+					pushFollow(FOLLOW_type_in_variable116);
 					type();
 					state._fsp--;
-					if (state.failed) return val;dbg.location(42,9);
-					ID7=(Token)match(input,ID,FOLLOW_ID_in_variable115); if (state.failed) return val;dbg.location(42,12);
-					pushFollow(FOLLOW_array_length_in_variable117);
+					if (state.failed) return val;dbg.location(46,9);
+					ID7=(Token)match(input,ID,FOLLOW_ID_in_variable118); if (state.failed) return val;dbg.location(46,12);
+					pushFollow(FOLLOW_array_length_in_variable120);
 					array_length8=array_length();
 					state._fsp--;
-					if (state.failed) return val;dbg.location(42,25);
-					pushFollow(FOLLOW_array_assign_in_variable119);
+					if (state.failed) return val;dbg.location(46,25);
+					pushFollow(FOLLOW_array_assign_in_variable122);
 					array_assign9=array_assign();
 					state._fsp--;
-					if (state.failed) return val;dbg.location(42,47);
-					pushFollow(FOLLOW_variable_in_variable125);
+					if (state.failed) return val;dbg.location(46,47);
+					pushFollow(FOLLOW_variable_in_variable128);
 					next_var=variable();
 					state._fsp--;
-					if (state.failed) return val;dbg.location(43,2);
+					if (state.failed) return val;dbg.location(47,2);
 					if ( state.backtracking==0 ) {
 							val = "var " + (ID7!=null?ID7.getText():null) + array_length8 + array_assign9 + next_var;
 						}
@@ -590,23 +591,23 @@ public class testParser extends DebugParser {
 				case 4 :
 					dbg.enterAlt(4);
 
-					// /Users/xuyi/Downloads/ANTLR/test.g:46:4: ',' ID array_length array_assign next_var= variable
+					// /Users/xuyi/Downloads/ANTLR/test.g:50:4: ',' ID array_length array_assign next_var= variable
 					{
-					dbg.location(46,4);
-					match(input,12,FOLLOW_12_in_variable133); if (state.failed) return val;dbg.location(46,8);
-					ID10=(Token)match(input,ID,FOLLOW_ID_in_variable135); if (state.failed) return val;dbg.location(46,11);
-					pushFollow(FOLLOW_array_length_in_variable137);
+					dbg.location(50,4);
+					match(input,12,FOLLOW_12_in_variable136); if (state.failed) return val;dbg.location(50,8);
+					ID10=(Token)match(input,ID,FOLLOW_ID_in_variable138); if (state.failed) return val;dbg.location(50,11);
+					pushFollow(FOLLOW_array_length_in_variable140);
 					array_length11=array_length();
 					state._fsp--;
-					if (state.failed) return val;dbg.location(46,24);
-					pushFollow(FOLLOW_array_assign_in_variable139);
+					if (state.failed) return val;dbg.location(50,24);
+					pushFollow(FOLLOW_array_assign_in_variable142);
 					array_assign12=array_assign();
 					state._fsp--;
-					if (state.failed) return val;dbg.location(46,46);
-					pushFollow(FOLLOW_variable_in_variable145);
+					if (state.failed) return val;dbg.location(50,46);
+					pushFollow(FOLLOW_variable_in_variable148);
 					next_var=variable();
 					state._fsp--;
-					if (state.failed) return val;dbg.location(47,2);
+					if (state.failed) return val;dbg.location(51,2);
 					if ( state.backtracking==0 ) {
 							val = "," + (ID10!=null?ID10.getText():null) + array_length11 + array_assign12 + next_var;
 						}
@@ -615,10 +616,10 @@ public class testParser extends DebugParser {
 				case 5 :
 					dbg.enterAlt(5);
 
-					// /Users/xuyi/Downloads/ANTLR/test.g:50:4: ';'
+					// /Users/xuyi/Downloads/ANTLR/test.g:54:4: ';'
 					{
-					dbg.location(50,4);
-					match(input,13,FOLLOW_13_in_variable153); if (state.failed) return val;dbg.location(51,2);
+					dbg.location(54,4);
+					match(input,13,FOLLOW_13_in_variable156); if (state.failed) return val;dbg.location(55,2);
 					if ( state.backtracking==0 ) {
 							val = ";\n";
 						}
@@ -634,7 +635,7 @@ public class testParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(54, 1);
+		dbg.location(58, 1);
 
 		}
 		finally {
@@ -650,7 +651,7 @@ public class testParser extends DebugParser {
 
 
 	// $ANTLR start "var_assign"
-	// /Users/xuyi/Downloads/ANTLR/test.g:58:1: var_assign returns [String val] : ( ID |);
+	// /Users/xuyi/Downloads/ANTLR/test.g:63:1: var_assign returns [String val] : ( ID |);
 	public final String var_assign() throws RecognitionException {
 		String val = null;
 
@@ -661,10 +662,10 @@ public class testParser extends DebugParser {
 		try { dbg.enterRule(getGrammarFileName(), "var_assign");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(58, 0);
+		dbg.location(63, 0);
 
 		try {
-			// /Users/xuyi/Downloads/ANTLR/test.g:62:2: ( ID |)
+			// /Users/xuyi/Downloads/ANTLR/test.g:67:2: ( ID |)
 			int alt4=2;
 			try { dbg.enterDecision(4, decisionCanBacktrack[4]);
 
@@ -672,7 +673,7 @@ public class testParser extends DebugParser {
 			if ( (LA4_0==ID) ) {
 				alt4=1;
 			}
-			else if ( ((LA4_0 >= 12 && LA4_0 <= 13)||(LA4_0 >= 17 && LA4_0 <= 23)) ) {
+			else if ( ((LA4_0 >= 12 && LA4_0 <= 13)||(LA4_0 >= 17 && LA4_0 <= 19)||(LA4_0 >= 21 && LA4_0 <= 24)) ) {
 				alt4=2;
 			}
 
@@ -690,10 +691,10 @@ public class testParser extends DebugParser {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// /Users/xuyi/Downloads/ANTLR/test.g:62:4: ID
+					// /Users/xuyi/Downloads/ANTLR/test.g:67:4: ID
 					{
-					dbg.location(62,4);
-					match(input,ID,FOLLOW_ID_in_var_assign177); if (state.failed) return val;dbg.location(63,2);
+					dbg.location(67,4);
+					match(input,ID,FOLLOW_ID_in_var_assign181); if (state.failed) return val;dbg.location(68,2);
 					if ( state.backtracking==0 ) {
 							val = "";
 						}
@@ -702,9 +703,9 @@ public class testParser extends DebugParser {
 				case 2 :
 					dbg.enterAlt(2);
 
-					// /Users/xuyi/Downloads/ANTLR/test.g:67:2: 
+					// /Users/xuyi/Downloads/ANTLR/test.g:72:2: 
 					{
-					dbg.location(67,2);
+					dbg.location(72,2);
 					if ( state.backtracking==0 ) {
 							val = "";
 						}
@@ -720,7 +721,7 @@ public class testParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(70, 1);
+		dbg.location(75, 1);
 
 		}
 		finally {
@@ -736,7 +737,7 @@ public class testParser extends DebugParser {
 
 
 	// $ANTLR start "array_length"
-	// /Users/xuyi/Downloads/ANTLR/test.g:72:1: array_length returns [String val] : ( '[' ID ']' | '[' INT ']' | '[' ']' );
+	// /Users/xuyi/Downloads/ANTLR/test.g:77:1: array_length returns [String val] : ( '[' ID ']' | '[' INT ']' | '[' ']' );
 	public final String array_length() throws RecognitionException {
 		String val = null;
 
@@ -750,10 +751,10 @@ public class testParser extends DebugParser {
 		try { dbg.enterRule(getGrammarFileName(), "array_length");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(72, 0);
+		dbg.location(77, 0);
 
 		try {
-			// /Users/xuyi/Downloads/ANTLR/test.g:76:2: ( '[' ID ']' | '[' INT ']' | '[' ']' )
+			// /Users/xuyi/Downloads/ANTLR/test.g:81:2: ( '[' ID ']' | '[' INT ']' | '[' ']' )
 			int alt5=3;
 			try { dbg.enterDecision(5, decisionCanBacktrack[5]);
 
@@ -804,12 +805,12 @@ public class testParser extends DebugParser {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// /Users/xuyi/Downloads/ANTLR/test.g:76:4: '[' ID ']'
+					// /Users/xuyi/Downloads/ANTLR/test.g:81:4: '[' ID ']'
 					{
-					dbg.location(76,4);
-					match(input,15,FOLLOW_15_in_array_length205); if (state.failed) return val;dbg.location(76,8);
-					ID13=(Token)match(input,ID,FOLLOW_ID_in_array_length207); if (state.failed) return val;dbg.location(76,11);
-					match(input,16,FOLLOW_16_in_array_length209); if (state.failed) return val;dbg.location(77,2);
+					dbg.location(81,4);
+					match(input,15,FOLLOW_15_in_array_length209); if (state.failed) return val;dbg.location(81,8);
+					ID13=(Token)match(input,ID,FOLLOW_ID_in_array_length211); if (state.failed) return val;dbg.location(81,11);
+					match(input,16,FOLLOW_16_in_array_length213); if (state.failed) return val;dbg.location(82,2);
 					if ( state.backtracking==0 ) {
 							val = "[" + (ID13!=null?ID13.getText():null) + "]";
 						}
@@ -818,12 +819,12 @@ public class testParser extends DebugParser {
 				case 2 :
 					dbg.enterAlt(2);
 
-					// /Users/xuyi/Downloads/ANTLR/test.g:80:4: '[' INT ']'
+					// /Users/xuyi/Downloads/ANTLR/test.g:85:4: '[' INT ']'
 					{
-					dbg.location(80,4);
-					match(input,15,FOLLOW_15_in_array_length217); if (state.failed) return val;dbg.location(80,8);
-					INT14=(Token)match(input,INT,FOLLOW_INT_in_array_length219); if (state.failed) return val;dbg.location(80,12);
-					match(input,16,FOLLOW_16_in_array_length221); if (state.failed) return val;dbg.location(81,2);
+					dbg.location(85,4);
+					match(input,15,FOLLOW_15_in_array_length221); if (state.failed) return val;dbg.location(85,8);
+					INT14=(Token)match(input,INT,FOLLOW_INT_in_array_length223); if (state.failed) return val;dbg.location(85,12);
+					match(input,16,FOLLOW_16_in_array_length225); if (state.failed) return val;dbg.location(86,2);
 					if ( state.backtracking==0 ) {
 							val = "[" + (INT14!=null?INT14.getText():null) + "]";
 						}
@@ -832,11 +833,11 @@ public class testParser extends DebugParser {
 				case 3 :
 					dbg.enterAlt(3);
 
-					// /Users/xuyi/Downloads/ANTLR/test.g:84:4: '[' ']'
+					// /Users/xuyi/Downloads/ANTLR/test.g:89:4: '[' ']'
 					{
-					dbg.location(84,4);
-					match(input,15,FOLLOW_15_in_array_length229); if (state.failed) return val;dbg.location(84,8);
-					match(input,16,FOLLOW_16_in_array_length231); if (state.failed) return val;dbg.location(85,2);
+					dbg.location(89,4);
+					match(input,15,FOLLOW_15_in_array_length233); if (state.failed) return val;dbg.location(89,8);
+					match(input,16,FOLLOW_16_in_array_length235); if (state.failed) return val;dbg.location(90,2);
 					if ( state.backtracking==0 ) {
 							val = "[" + "]";
 						}
@@ -852,7 +853,7 @@ public class testParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(88, 1);
+		dbg.location(93, 1);
 
 		}
 		finally {
@@ -868,7 +869,7 @@ public class testParser extends DebugParser {
 
 
 	// $ANTLR start "array_assign"
-	// /Users/xuyi/Downloads/ANTLR/test.g:92:1: array_assign returns [String val] : ( '=' '{' '}' |);
+	// /Users/xuyi/Downloads/ANTLR/test.g:98:1: array_assign returns [String val] : ( '=' '{' '}' |);
 	public final String array_assign() throws RecognitionException {
 		String val = null;
 
@@ -879,10 +880,10 @@ public class testParser extends DebugParser {
 		try { dbg.enterRule(getGrammarFileName(), "array_assign");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(92, 0);
+		dbg.location(98, 0);
 
 		try {
-			// /Users/xuyi/Downloads/ANTLR/test.g:96:2: ( '=' '{' '}' |)
+			// /Users/xuyi/Downloads/ANTLR/test.g:102:2: ( '=' '{' '}' |)
 			int alt6=2;
 			try { dbg.enterDecision(6, decisionCanBacktrack[6]);
 
@@ -890,7 +891,7 @@ public class testParser extends DebugParser {
 			if ( (LA6_0==14) ) {
 				alt6=1;
 			}
-			else if ( ((LA6_0 >= 12 && LA6_0 <= 13)||(LA6_0 >= 17 && LA6_0 <= 23)) ) {
+			else if ( ((LA6_0 >= 12 && LA6_0 <= 13)||(LA6_0 >= 17 && LA6_0 <= 19)||(LA6_0 >= 21 && LA6_0 <= 24)) ) {
 				alt6=2;
 			}
 
@@ -908,12 +909,12 @@ public class testParser extends DebugParser {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// /Users/xuyi/Downloads/ANTLR/test.g:96:4: '=' '{' '}'
+					// /Users/xuyi/Downloads/ANTLR/test.g:102:4: '=' '{' '}'
 					{
-					dbg.location(96,4);
-					match(input,14,FOLLOW_14_in_array_assign255); if (state.failed) return val;dbg.location(96,8);
-					match(input,24,FOLLOW_24_in_array_assign257); if (state.failed) return val;dbg.location(96,12);
-					match(input,25,FOLLOW_25_in_array_assign259); if (state.failed) return val;dbg.location(97,2);
+					dbg.location(102,4);
+					match(input,14,FOLLOW_14_in_array_assign260); if (state.failed) return val;dbg.location(102,8);
+					match(input,25,FOLLOW_25_in_array_assign262); if (state.failed) return val;dbg.location(102,12);
+					match(input,26,FOLLOW_26_in_array_assign264); if (state.failed) return val;dbg.location(103,2);
 					if ( state.backtracking==0 ) {
 							val = "";
 						}
@@ -922,9 +923,9 @@ public class testParser extends DebugParser {
 				case 2 :
 					dbg.enterAlt(2);
 
-					// /Users/xuyi/Downloads/ANTLR/test.g:101:2: 
+					// /Users/xuyi/Downloads/ANTLR/test.g:107:2: 
 					{
-					dbg.location(101,2);
+					dbg.location(107,2);
 					if ( state.backtracking==0 ) {
 							val = "";
 						}
@@ -940,7 +941,7 @@ public class testParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(104, 1);
+		dbg.location(110, 1);
 
 		}
 		finally {
@@ -956,7 +957,7 @@ public class testParser extends DebugParser {
 
 
 	// $ANTLR start "function_declaration"
-	// /Users/xuyi/Downloads/ANTLR/test.g:106:1: function_declaration returns [String val] : type ID '(' function_parameters ')' ;
+	// /Users/xuyi/Downloads/ANTLR/test.g:113:1: function_declaration returns [String val] : type ID '(' function_parameters ')' ;
 	public final String function_declaration() throws RecognitionException {
 		String val = null;
 
@@ -970,26 +971,26 @@ public class testParser extends DebugParser {
 		try { dbg.enterRule(getGrammarFileName(), "function_declaration");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(106, 0);
+		dbg.location(113, 0);
 
 		try {
-			// /Users/xuyi/Downloads/ANTLR/test.g:110:2: ( type ID '(' function_parameters ')' )
+			// /Users/xuyi/Downloads/ANTLR/test.g:117:2: ( type ID '(' function_parameters ')' )
 			dbg.enterAlt(1);
 
-			// /Users/xuyi/Downloads/ANTLR/test.g:110:4: type ID '(' function_parameters ')'
+			// /Users/xuyi/Downloads/ANTLR/test.g:117:4: type ID '(' function_parameters ')'
 			{
-			dbg.location(110,4);
-			pushFollow(FOLLOW_type_in_function_declaration287);
+			dbg.location(117,4);
+			pushFollow(FOLLOW_type_in_function_declaration293);
 			type();
 			state._fsp--;
-			if (state.failed) return val;dbg.location(110,9);
-			ID15=(Token)match(input,ID,FOLLOW_ID_in_function_declaration289); if (state.failed) return val;dbg.location(110,12);
-			match(input,9,FOLLOW_9_in_function_declaration291); if (state.failed) return val;dbg.location(110,16);
-			pushFollow(FOLLOW_function_parameters_in_function_declaration293);
+			if (state.failed) return val;dbg.location(117,9);
+			ID15=(Token)match(input,ID,FOLLOW_ID_in_function_declaration295); if (state.failed) return val;dbg.location(117,12);
+			match(input,9,FOLLOW_9_in_function_declaration297); if (state.failed) return val;dbg.location(117,16);
+			pushFollow(FOLLOW_function_parameters_in_function_declaration299);
 			function_parameters16=function_parameters();
 			state._fsp--;
-			if (state.failed) return val;dbg.location(110,35);
-			match(input,10,FOLLOW_10_in_function_declaration294); if (state.failed) return val;dbg.location(111,2);
+			if (state.failed) return val;dbg.location(117,35);
+			match(input,10,FOLLOW_10_in_function_declaration300); if (state.failed) return val;dbg.location(118,2);
 			if ( state.backtracking==0 ) {
 					val = "function " + (ID15!=null?ID15.getText():null) + "(" + function_parameters16 + ")";
 				}
@@ -1003,7 +1004,7 @@ public class testParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(114, 1);
+		dbg.location(121, 1);
 
 		}
 		finally {
@@ -1019,7 +1020,7 @@ public class testParser extends DebugParser {
 
 
 	// $ANTLR start "function_parameters"
-	// /Users/xuyi/Downloads/ANTLR/test.g:116:1: function_parameters returns [String val] : ( type ID next_param= function_parameters | ',' type ID next_param= function_parameters | 'void' |);
+	// /Users/xuyi/Downloads/ANTLR/test.g:124:1: function_parameters returns [String val] : ( type ID next_param= function_parameters | ',' type ID next_param= function_parameters | 'void' |);
 	public final String function_parameters() throws RecognitionException {
 		String val = null;
 
@@ -1034,15 +1035,15 @@ public class testParser extends DebugParser {
 		try { dbg.enterRule(getGrammarFileName(), "function_parameters");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(116, 0);
+		dbg.location(124, 0);
 
 		try {
-			// /Users/xuyi/Downloads/ANTLR/test.g:120:2: ( type ID next_param= function_parameters | ',' type ID next_param= function_parameters | 'void' |)
+			// /Users/xuyi/Downloads/ANTLR/test.g:128:2: ( type ID next_param= function_parameters | ',' type ID next_param= function_parameters | 'void' |)
 			int alt7=4;
 			try { dbg.enterDecision(7, decisionCanBacktrack[7]);
 
 			switch ( input.LA(1) ) {
-			case 23:
+			case 24:
 				{
 				int LA7_1 = input.LA(2);
 				if ( (LA7_1==ID||LA7_1==11) ) {
@@ -1076,9 +1077,9 @@ public class testParser extends DebugParser {
 			case 17:
 			case 18:
 			case 19:
-			case 20:
 			case 21:
 			case 22:
+			case 23:
 				{
 				alt7=1;
 				}
@@ -1102,18 +1103,18 @@ public class testParser extends DebugParser {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// /Users/xuyi/Downloads/ANTLR/test.g:120:4: type ID next_param= function_parameters
+					// /Users/xuyi/Downloads/ANTLR/test.g:128:4: type ID next_param= function_parameters
 					{
-					dbg.location(120,4);
-					pushFollow(FOLLOW_type_in_function_parameters317);
+					dbg.location(128,4);
+					pushFollow(FOLLOW_type_in_function_parameters324);
 					type();
 					state._fsp--;
-					if (state.failed) return val;dbg.location(120,9);
-					ID17=(Token)match(input,ID,FOLLOW_ID_in_function_parameters319); if (state.failed) return val;dbg.location(120,23);
-					pushFollow(FOLLOW_function_parameters_in_function_parameters325);
+					if (state.failed) return val;dbg.location(128,9);
+					ID17=(Token)match(input,ID,FOLLOW_ID_in_function_parameters326); if (state.failed) return val;dbg.location(128,23);
+					pushFollow(FOLLOW_function_parameters_in_function_parameters332);
 					next_param=function_parameters();
 					state._fsp--;
-					if (state.failed) return val;dbg.location(121,2);
+					if (state.failed) return val;dbg.location(129,2);
 					if ( state.backtracking==0 ) {
 							val = (ID17!=null?ID17.getText():null) + next_param;
 						}
@@ -1122,19 +1123,19 @@ public class testParser extends DebugParser {
 				case 2 :
 					dbg.enterAlt(2);
 
-					// /Users/xuyi/Downloads/ANTLR/test.g:124:4: ',' type ID next_param= function_parameters
+					// /Users/xuyi/Downloads/ANTLR/test.g:132:4: ',' type ID next_param= function_parameters
 					{
-					dbg.location(124,4);
-					match(input,12,FOLLOW_12_in_function_parameters333); if (state.failed) return val;dbg.location(124,8);
-					pushFollow(FOLLOW_type_in_function_parameters335);
+					dbg.location(132,4);
+					match(input,12,FOLLOW_12_in_function_parameters340); if (state.failed) return val;dbg.location(132,8);
+					pushFollow(FOLLOW_type_in_function_parameters342);
 					type();
 					state._fsp--;
-					if (state.failed) return val;dbg.location(124,13);
-					ID18=(Token)match(input,ID,FOLLOW_ID_in_function_parameters337); if (state.failed) return val;dbg.location(124,27);
-					pushFollow(FOLLOW_function_parameters_in_function_parameters343);
+					if (state.failed) return val;dbg.location(132,13);
+					ID18=(Token)match(input,ID,FOLLOW_ID_in_function_parameters344); if (state.failed) return val;dbg.location(132,27);
+					pushFollow(FOLLOW_function_parameters_in_function_parameters350);
 					next_param=function_parameters();
 					state._fsp--;
-					if (state.failed) return val;dbg.location(125,2);
+					if (state.failed) return val;dbg.location(133,2);
 					if ( state.backtracking==0 ) {
 							val = ',' + (ID18!=null?ID18.getText():null) + next_param;
 						}
@@ -1143,10 +1144,10 @@ public class testParser extends DebugParser {
 				case 3 :
 					dbg.enterAlt(3);
 
-					// /Users/xuyi/Downloads/ANTLR/test.g:128:4: 'void'
+					// /Users/xuyi/Downloads/ANTLR/test.g:136:4: 'void'
 					{
-					dbg.location(128,4);
-					match(input,23,FOLLOW_23_in_function_parameters351); if (state.failed) return val;dbg.location(129,2);
+					dbg.location(136,4);
+					match(input,24,FOLLOW_24_in_function_parameters358); if (state.failed) return val;dbg.location(137,2);
 					if ( state.backtracking==0 ) {
 							val = "";
 						}
@@ -1155,9 +1156,9 @@ public class testParser extends DebugParser {
 				case 4 :
 					dbg.enterAlt(4);
 
-					// /Users/xuyi/Downloads/ANTLR/test.g:133:2: 
+					// /Users/xuyi/Downloads/ANTLR/test.g:141:2: 
 					{
-					dbg.location(133,2);
+					dbg.location(141,2);
 					if ( state.backtracking==0 ) {
 							val = "";
 						}
@@ -1173,7 +1174,7 @@ public class testParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(136, 1);
+		dbg.location(144, 1);
 
 		}
 		finally {
@@ -1189,12 +1190,13 @@ public class testParser extends DebugParser {
 
 
 	// $ANTLR start "function_body"
-	// /Users/xuyi/Downloads/ANTLR/test.g:138:1: function_body returns [String val] : '{' variablePart '}' ;
+	// /Users/xuyi/Downloads/ANTLR/test.g:156:1: function_body returns [String val] : '{' variablePart statPart '}' ;
 	public final String function_body() throws RecognitionException {
 		String val = null;
 
 
 		String variablePart19 =null;
+		String statPart20 =null;
 
 
 			val = null;
@@ -1202,23 +1204,27 @@ public class testParser extends DebugParser {
 		try { dbg.enterRule(getGrammarFileName(), "function_body");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(138, 0);
+		dbg.location(156, 0);
 
 		try {
-			// /Users/xuyi/Downloads/ANTLR/test.g:142:2: ( '{' variablePart '}' )
+			// /Users/xuyi/Downloads/ANTLR/test.g:160:2: ( '{' variablePart statPart '}' )
 			dbg.enterAlt(1);
 
-			// /Users/xuyi/Downloads/ANTLR/test.g:142:4: '{' variablePart '}'
+			// /Users/xuyi/Downloads/ANTLR/test.g:160:4: '{' variablePart statPart '}'
 			{
-			dbg.location(142,4);
-			match(input,24,FOLLOW_24_in_function_body379); if (state.failed) return val;dbg.location(142,8);
-			pushFollow(FOLLOW_variablePart_in_function_body381);
+			dbg.location(160,4);
+			match(input,25,FOLLOW_25_in_function_body388); if (state.failed) return val;dbg.location(160,8);
+			pushFollow(FOLLOW_variablePart_in_function_body390);
 			variablePart19=variablePart();
 			state._fsp--;
-			if (state.failed) return val;dbg.location(142,20);
-			match(input,25,FOLLOW_25_in_function_body382); if (state.failed) return val;dbg.location(143,2);
+			if (state.failed) return val;dbg.location(160,21);
+			pushFollow(FOLLOW_statPart_in_function_body392);
+			statPart20=statPart();
+			state._fsp--;
+			if (state.failed) return val;dbg.location(160,30);
+			match(input,26,FOLLOW_26_in_function_body394); if (state.failed) return val;dbg.location(161,2);
 			if ( state.backtracking==0 ) {
-					val = "{\n" + variablePart19 + "}\n";
+					val = "{\n" + variablePart19 + statPart20 + "}\n";
 				}
 			}
 
@@ -1230,7 +1236,7 @@ public class testParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(146, 1);
+		dbg.location(164, 1);
 
 		}
 		finally {
@@ -1246,13 +1252,13 @@ public class testParser extends DebugParser {
 
 
 	// $ANTLR start "variablePart"
-	// /Users/xuyi/Downloads/ANTLR/test.g:148:1: variablePart returns [String val] : ( variable next_variable= variablePart |);
+	// /Users/xuyi/Downloads/ANTLR/test.g:172:1: variablePart returns [String val] : ( variable next_variable= variablePart |);
 	public final String variablePart() throws RecognitionException {
 		String val = null;
 
 
 		String next_variable =null;
-		String variable20 =null;
+		String variable21 =null;
 
 
 			val = null;
@@ -1260,18 +1266,18 @@ public class testParser extends DebugParser {
 		try { dbg.enterRule(getGrammarFileName(), "variablePart");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(148, 0);
+		dbg.location(172, 0);
 
 		try {
-			// /Users/xuyi/Downloads/ANTLR/test.g:152:2: ( variable next_variable= variablePart |)
+			// /Users/xuyi/Downloads/ANTLR/test.g:176:2: ( variable next_variable= variablePart |)
 			int alt8=2;
 			try { dbg.enterDecision(8, decisionCanBacktrack[8]);
 
 			int LA8_0 = input.LA(1);
-			if ( ((LA8_0 >= 12 && LA8_0 <= 13)||(LA8_0 >= 17 && LA8_0 <= 23)) ) {
+			if ( ((LA8_0 >= 12 && LA8_0 <= 13)||(LA8_0 >= 17 && LA8_0 <= 19)||(LA8_0 >= 21 && LA8_0 <= 24)) ) {
 				alt8=1;
 			}
-			else if ( (LA8_0==EOF||LA8_0==25) ) {
+			else if ( (LA8_0==EOF||LA8_0==20||LA8_0==26) ) {
 				alt8=2;
 			}
 
@@ -1289,28 +1295,28 @@ public class testParser extends DebugParser {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// /Users/xuyi/Downloads/ANTLR/test.g:152:4: variable next_variable= variablePart
+					// /Users/xuyi/Downloads/ANTLR/test.g:176:4: variable next_variable= variablePart
 					{
-					dbg.location(152,4);
-					pushFollow(FOLLOW_variable_in_variablePart404);
-					variable20=variable();
+					dbg.location(176,4);
+					pushFollow(FOLLOW_variable_in_variablePart418);
+					variable21=variable();
 					state._fsp--;
-					if (state.failed) return val;dbg.location(152,27);
-					pushFollow(FOLLOW_variablePart_in_variablePart410);
+					if (state.failed) return val;dbg.location(176,27);
+					pushFollow(FOLLOW_variablePart_in_variablePart424);
 					next_variable=variablePart();
 					state._fsp--;
-					if (state.failed) return val;dbg.location(153,2);
+					if (state.failed) return val;dbg.location(177,2);
 					if ( state.backtracking==0 ) {
-							val = variable20 + next_variable;
+							val = variable21 + next_variable;
 						}
 					}
 					break;
 				case 2 :
 					dbg.enterAlt(2);
 
-					// /Users/xuyi/Downloads/ANTLR/test.g:157:2: 
+					// /Users/xuyi/Downloads/ANTLR/test.g:181:2: 
 					{
-					dbg.location(157,2);
+					dbg.location(181,2);
 					if ( state.backtracking==0 ) {
 							val = "";
 						}
@@ -1326,7 +1332,7 @@ public class testParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(160, 1);
+		dbg.location(184, 1);
 
 		}
 		finally {
@@ -1341,47 +1347,38 @@ public class testParser extends DebugParser {
 
 
 
-	// $ANTLR start "type"
-	// /Users/xuyi/Downloads/ANTLR/test.g:169:1: type : ( basicType | basicType '*' );
-	public final void type() throws RecognitionException {
-		try { dbg.enterRule(getGrammarFileName(), "type");
+	// $ANTLR start "statPart"
+	// /Users/xuyi/Downloads/ANTLR/test.g:186:1: statPart returns [String val] : ( stat next_stat= statPart |);
+	public final String statPart() throws RecognitionException {
+		String val = null;
+
+
+		String next_stat =null;
+		String stat22 =null;
+
+
+			val = null;
+
+		try { dbg.enterRule(getGrammarFileName(), "statPart");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(169, 0);
+		dbg.location(186, 0);
 
 		try {
-			// /Users/xuyi/Downloads/ANTLR/test.g:170:2: ( basicType | basicType '*' )
+			// /Users/xuyi/Downloads/ANTLR/test.g:190:2: ( stat next_stat= statPart |)
 			int alt9=2;
 			try { dbg.enterDecision(9, decisionCanBacktrack[9]);
 
 			int LA9_0 = input.LA(1);
-			if ( ((LA9_0 >= 17 && LA9_0 <= 23)) ) {
-				int LA9_1 = input.LA(2);
-				if ( (LA9_1==ID||(LA9_1 >= 12 && LA9_1 <= 13)||(LA9_1 >= 17 && LA9_1 <= 23)) ) {
-					alt9=1;
-				}
-				else if ( (LA9_1==11) ) {
-					alt9=2;
-				}
-
-				else {
-					if (state.backtracking>0) {state.failed=true; return;}
-					int nvaeMark = input.mark();
-					try {
-						input.consume();
-						NoViableAltException nvae =
-							new NoViableAltException("", 9, 1, input);
-						dbg.recognitionException(nvae);
-						throw nvae;
-					} finally {
-						input.rewind(nvaeMark);
-					}
-				}
-
+			if ( (LA9_0==20) ) {
+				alt9=1;
+			}
+			else if ( (LA9_0==EOF||LA9_0==26) ) {
+				alt9=2;
 			}
 
 			else {
-				if (state.backtracking>0) {state.failed=true; return;}
+				if (state.backtracking>0) {state.failed=true; return val;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 9, 0, input);
 				dbg.recognitionException(nvae);
@@ -1394,26 +1391,31 @@ public class testParser extends DebugParser {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// /Users/xuyi/Downloads/ANTLR/test.g:170:4: basicType
+					// /Users/xuyi/Downloads/ANTLR/test.g:190:4: stat next_stat= statPart
 					{
-					dbg.location(170,4);
-					pushFollow(FOLLOW_basicType_in_type438);
-					basicType();
+					dbg.location(190,4);
+					pushFollow(FOLLOW_stat_in_statPart452);
+					stat22=stat();
 					state._fsp--;
-					if (state.failed) return;
+					if (state.failed) return val;dbg.location(190,19);
+					pushFollow(FOLLOW_statPart_in_statPart458);
+					next_stat=statPart();
+					state._fsp--;
+					if (state.failed) return val;dbg.location(191,2);
+					if ( state.backtracking==0 ) {
+							val = stat22 + next_stat;
+						}
 					}
 					break;
 				case 2 :
 					dbg.enterAlt(2);
 
-					// /Users/xuyi/Downloads/ANTLR/test.g:171:4: basicType '*'
+					// /Users/xuyi/Downloads/ANTLR/test.g:195:2: 
 					{
-					dbg.location(171,4);
-					pushFollow(FOLLOW_basicType_in_type443);
-					basicType();
-					state._fsp--;
-					if (state.failed) return;dbg.location(171,14);
-					match(input,11,FOLLOW_11_in_type445); if (state.failed) return;
+					dbg.location(195,2);
+					if ( state.backtracking==0 ) {
+							val = "";
+						}
 					}
 					break;
 
@@ -1426,7 +1428,154 @@ public class testParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(172, 1);
+		dbg.location(198, 1);
+
+		}
+		finally {
+			dbg.exitRule(getGrammarFileName(), "statPart");
+			decRuleLevel();
+			if ( getRuleLevel()==0 ) {dbg.terminate();}
+		}
+
+		return val;
+	}
+	// $ANTLR end "statPart"
+
+
+
+	// $ANTLR start "stat"
+	// /Users/xuyi/Downloads/ANTLR/test.g:202:1: stat returns [String val] : 'if' ;
+	public final String stat() throws RecognitionException {
+		String val = null;
+
+
+		try { dbg.enterRule(getGrammarFileName(), "stat");
+		if ( getRuleLevel()==0 ) {dbg.commence();}
+		incRuleLevel();
+		dbg.location(202, 0);
+
+		try {
+			// /Users/xuyi/Downloads/ANTLR/test.g:206:2: ( 'if' )
+			dbg.enterAlt(1);
+
+			// /Users/xuyi/Downloads/ANTLR/test.g:206:4: 'if'
+			{
+			dbg.location(206,4);
+			match(input,20,FOLLOW_20_in_stat489); if (state.failed) return val;dbg.location(207,2);
+			if ( state.backtracking==0 ) {
+					val = "";
+				}
+			}
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+		}
+		dbg.location(210, 1);
+
+		}
+		finally {
+			dbg.exitRule(getGrammarFileName(), "stat");
+			decRuleLevel();
+			if ( getRuleLevel()==0 ) {dbg.terminate();}
+		}
+
+		return val;
+	}
+	// $ANTLR end "stat"
+
+
+
+	// $ANTLR start "type"
+	// /Users/xuyi/Downloads/ANTLR/test.g:214:1: type : ( basicType | basicType '*' );
+	public final void type() throws RecognitionException {
+		try { dbg.enterRule(getGrammarFileName(), "type");
+		if ( getRuleLevel()==0 ) {dbg.commence();}
+		incRuleLevel();
+		dbg.location(214, 0);
+
+		try {
+			// /Users/xuyi/Downloads/ANTLR/test.g:215:2: ( basicType | basicType '*' )
+			int alt10=2;
+			try { dbg.enterDecision(10, decisionCanBacktrack[10]);
+
+			int LA10_0 = input.LA(1);
+			if ( ((LA10_0 >= 17 && LA10_0 <= 19)||(LA10_0 >= 21 && LA10_0 <= 24)) ) {
+				int LA10_1 = input.LA(2);
+				if ( (LA10_1==ID||(LA10_1 >= 12 && LA10_1 <= 13)||(LA10_1 >= 17 && LA10_1 <= 19)||(LA10_1 >= 21 && LA10_1 <= 24)) ) {
+					alt10=1;
+				}
+				else if ( (LA10_1==11) ) {
+					alt10=2;
+				}
+
+				else {
+					if (state.backtracking>0) {state.failed=true; return;}
+					int nvaeMark = input.mark();
+					try {
+						input.consume();
+						NoViableAltException nvae =
+							new NoViableAltException("", 10, 1, input);
+						dbg.recognitionException(nvae);
+						throw nvae;
+					} finally {
+						input.rewind(nvaeMark);
+					}
+				}
+
+			}
+
+			else {
+				if (state.backtracking>0) {state.failed=true; return;}
+				NoViableAltException nvae =
+					new NoViableAltException("", 10, 0, input);
+				dbg.recognitionException(nvae);
+				throw nvae;
+			}
+
+			} finally {dbg.exitDecision(10);}
+
+			switch (alt10) {
+				case 1 :
+					dbg.enterAlt(1);
+
+					// /Users/xuyi/Downloads/ANTLR/test.g:215:4: basicType
+					{
+					dbg.location(215,4);
+					pushFollow(FOLLOW_basicType_in_type505);
+					basicType();
+					state._fsp--;
+					if (state.failed) return;
+					}
+					break;
+				case 2 :
+					dbg.enterAlt(2);
+
+					// /Users/xuyi/Downloads/ANTLR/test.g:216:4: basicType '*'
+					{
+					dbg.location(216,4);
+					pushFollow(FOLLOW_basicType_in_type510);
+					basicType();
+					state._fsp--;
+					if (state.failed) return;dbg.location(216,14);
+					match(input,11,FOLLOW_11_in_type512); if (state.failed) return;
+					}
+					break;
+
+			}
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+		}
+		dbg.location(217, 1);
 
 		}
 		finally {
@@ -1441,21 +1590,21 @@ public class testParser extends DebugParser {
 
 
 	// $ANTLR start "basicType"
-	// /Users/xuyi/Downloads/ANTLR/test.g:174:1: basicType : ( 'int' | 'char' | 'float' | 'double' | 'short' | 'long' | 'void' );
+	// /Users/xuyi/Downloads/ANTLR/test.g:219:1: basicType : ( 'int' | 'char' | 'float' | 'double' | 'short' | 'long' | 'void' );
 	public final void basicType() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "basicType");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(174, 0);
+		dbg.location(219, 0);
 
 		try {
-			// /Users/xuyi/Downloads/ANTLR/test.g:175:2: ( 'int' | 'char' | 'float' | 'double' | 'short' | 'long' | 'void' )
+			// /Users/xuyi/Downloads/ANTLR/test.g:220:2: ( 'int' | 'char' | 'float' | 'double' | 'short' | 'long' | 'void' )
 			dbg.enterAlt(1);
 
 			// /Users/xuyi/Downloads/ANTLR/test.g:
 			{
-			dbg.location(175,2);
-			if ( (input.LA(1) >= 17 && input.LA(1) <= 23) ) {
+			dbg.location(220,2);
+			if ( (input.LA(1) >= 17 && input.LA(1) <= 19)||(input.LA(1) >= 21 && input.LA(1) <= 24) ) {
 				input.consume();
 				state.errorRecovery=false;
 				state.failed=false;
@@ -1476,7 +1625,7 @@ public class testParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(182, 1);
+		dbg.location(227, 1);
 
 		}
 		finally {
@@ -1490,13 +1639,13 @@ public class testParser extends DebugParser {
 
 	// $ANTLR start synpred2_test
 	public final void synpred2_test_fragment() throws RecognitionException {
-		// /Users/xuyi/Downloads/ANTLR/test.g:16:4: ( variable )
+		// /Users/xuyi/Downloads/ANTLR/test.g:17:4: ( variable )
 		dbg.enterAlt(1);
 
-		// /Users/xuyi/Downloads/ANTLR/test.g:16:4: variable
+		// /Users/xuyi/Downloads/ANTLR/test.g:17:4: variable
 		{
-		dbg.location(16,4);
-		pushFollow(FOLLOW_variable_in_synpred2_test40);
+		dbg.location(17,4);
+		pushFollow(FOLLOW_variable_in_synpred2_test41);
 		variable();
 		state._fsp--;
 		if (state.failed) return;
@@ -1507,17 +1656,17 @@ public class testParser extends DebugParser {
 
 	// $ANTLR start synpred3_test
 	public final void synpred3_test_fragment() throws RecognitionException {
-		// /Users/xuyi/Downloads/ANTLR/test.g:20:4: ( function_declaration ';' )
+		// /Users/xuyi/Downloads/ANTLR/test.g:22:4: ( function_declaration ';' )
 		dbg.enterAlt(1);
 
-		// /Users/xuyi/Downloads/ANTLR/test.g:20:4: function_declaration ';'
+		// /Users/xuyi/Downloads/ANTLR/test.g:22:4: function_declaration ';'
 		{
-		dbg.location(20,4);
-		pushFollow(FOLLOW_function_declaration_in_synpred3_test48);
+		dbg.location(22,4);
+		pushFollow(FOLLOW_function_declaration_in_synpred3_test50);
 		function_declaration();
 		state._fsp--;
-		if (state.failed) return;dbg.location(20,25);
-		match(input,13,FOLLOW_13_in_synpred3_test50); if (state.failed) return;
+		if (state.failed) return;dbg.location(22,25);
+		match(input,13,FOLLOW_13_in_synpred3_test52); if (state.failed) return;
 		}
 
 	}
@@ -1560,63 +1709,67 @@ public class testParser extends DebugParser {
 
 
 
-	public static final BitSet FOLLOW_declaration_in_program28 = new BitSet(new long[]{0x0000000000FE3002L});
-	public static final BitSet FOLLOW_variable_in_declaration40 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_function_declaration_in_declaration48 = new BitSet(new long[]{0x0000000000002000L});
-	public static final BitSet FOLLOW_13_in_declaration50 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_function_declaration_in_declaration58 = new BitSet(new long[]{0x0000000001000000L});
-	public static final BitSet FOLLOW_function_body_in_declaration60 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_type_in_variable83 = new BitSet(new long[]{0x0000000000FE3080L});
-	public static final BitSet FOLLOW_var_assign_in_variable85 = new BitSet(new long[]{0x0000000000FE3000L});
-	public static final BitSet FOLLOW_variable_in_variable91 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_12_in_variable99 = new BitSet(new long[]{0x0000000000FE3080L});
-	public static final BitSet FOLLOW_var_assign_in_variable101 = new BitSet(new long[]{0x0000000000FE3000L});
-	public static final BitSet FOLLOW_variable_in_variable105 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_type_in_variable113 = new BitSet(new long[]{0x0000000000000080L});
-	public static final BitSet FOLLOW_ID_in_variable115 = new BitSet(new long[]{0x0000000000008000L});
-	public static final BitSet FOLLOW_array_length_in_variable117 = new BitSet(new long[]{0x0000000000FE7000L});
-	public static final BitSet FOLLOW_array_assign_in_variable119 = new BitSet(new long[]{0x0000000000FE3000L});
-	public static final BitSet FOLLOW_variable_in_variable125 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_12_in_variable133 = new BitSet(new long[]{0x0000000000000080L});
-	public static final BitSet FOLLOW_ID_in_variable135 = new BitSet(new long[]{0x0000000000008000L});
-	public static final BitSet FOLLOW_array_length_in_variable137 = new BitSet(new long[]{0x0000000000FE7000L});
-	public static final BitSet FOLLOW_array_assign_in_variable139 = new BitSet(new long[]{0x0000000000FE3000L});
-	public static final BitSet FOLLOW_variable_in_variable145 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_13_in_variable153 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ID_in_var_assign177 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_15_in_array_length205 = new BitSet(new long[]{0x0000000000000080L});
-	public static final BitSet FOLLOW_ID_in_array_length207 = new BitSet(new long[]{0x0000000000010000L});
-	public static final BitSet FOLLOW_16_in_array_length209 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_15_in_array_length217 = new BitSet(new long[]{0x0000000000000100L});
-	public static final BitSet FOLLOW_INT_in_array_length219 = new BitSet(new long[]{0x0000000000010000L});
-	public static final BitSet FOLLOW_16_in_array_length221 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_15_in_array_length229 = new BitSet(new long[]{0x0000000000010000L});
-	public static final BitSet FOLLOW_16_in_array_length231 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_14_in_array_assign255 = new BitSet(new long[]{0x0000000001000000L});
-	public static final BitSet FOLLOW_24_in_array_assign257 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_25_in_array_assign259 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_type_in_function_declaration287 = new BitSet(new long[]{0x0000000000000080L});
-	public static final BitSet FOLLOW_ID_in_function_declaration289 = new BitSet(new long[]{0x0000000000000200L});
-	public static final BitSet FOLLOW_9_in_function_declaration291 = new BitSet(new long[]{0x0000000000FE1400L});
-	public static final BitSet FOLLOW_function_parameters_in_function_declaration293 = new BitSet(new long[]{0x0000000000000400L});
-	public static final BitSet FOLLOW_10_in_function_declaration294 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_type_in_function_parameters317 = new BitSet(new long[]{0x0000000000000080L});
-	public static final BitSet FOLLOW_ID_in_function_parameters319 = new BitSet(new long[]{0x0000000000FE1000L});
-	public static final BitSet FOLLOW_function_parameters_in_function_parameters325 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_12_in_function_parameters333 = new BitSet(new long[]{0x0000000000FE0000L});
-	public static final BitSet FOLLOW_type_in_function_parameters335 = new BitSet(new long[]{0x0000000000000080L});
-	public static final BitSet FOLLOW_ID_in_function_parameters337 = new BitSet(new long[]{0x0000000000FE1000L});
-	public static final BitSet FOLLOW_function_parameters_in_function_parameters343 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_23_in_function_parameters351 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_24_in_function_body379 = new BitSet(new long[]{0x0000000002FE3000L});
-	public static final BitSet FOLLOW_variablePart_in_function_body381 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_25_in_function_body382 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_variable_in_variablePart404 = new BitSet(new long[]{0x0000000000FE3000L});
-	public static final BitSet FOLLOW_variablePart_in_variablePart410 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_basicType_in_type438 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_basicType_in_type443 = new BitSet(new long[]{0x0000000000000800L});
-	public static final BitSet FOLLOW_11_in_type445 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_variable_in_synpred2_test40 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_function_declaration_in_synpred3_test48 = new BitSet(new long[]{0x0000000000002000L});
-	public static final BitSet FOLLOW_13_in_synpred3_test50 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_declaration_in_program28 = new BitSet(new long[]{0x0000000001EE3002L});
+	public static final BitSet FOLLOW_variable_in_declaration41 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_function_declaration_in_declaration50 = new BitSet(new long[]{0x0000000000002000L});
+	public static final BitSet FOLLOW_13_in_declaration52 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_function_declaration_in_declaration61 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_function_body_in_declaration63 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_type_in_variable86 = new BitSet(new long[]{0x0000000001EE3080L});
+	public static final BitSet FOLLOW_var_assign_in_variable88 = new BitSet(new long[]{0x0000000001EE3000L});
+	public static final BitSet FOLLOW_variable_in_variable94 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_12_in_variable102 = new BitSet(new long[]{0x0000000001EE3080L});
+	public static final BitSet FOLLOW_var_assign_in_variable104 = new BitSet(new long[]{0x0000000001EE3000L});
+	public static final BitSet FOLLOW_variable_in_variable108 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_type_in_variable116 = new BitSet(new long[]{0x0000000000000080L});
+	public static final BitSet FOLLOW_ID_in_variable118 = new BitSet(new long[]{0x0000000000008000L});
+	public static final BitSet FOLLOW_array_length_in_variable120 = new BitSet(new long[]{0x0000000001EE7000L});
+	public static final BitSet FOLLOW_array_assign_in_variable122 = new BitSet(new long[]{0x0000000001EE3000L});
+	public static final BitSet FOLLOW_variable_in_variable128 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_12_in_variable136 = new BitSet(new long[]{0x0000000000000080L});
+	public static final BitSet FOLLOW_ID_in_variable138 = new BitSet(new long[]{0x0000000000008000L});
+	public static final BitSet FOLLOW_array_length_in_variable140 = new BitSet(new long[]{0x0000000001EE7000L});
+	public static final BitSet FOLLOW_array_assign_in_variable142 = new BitSet(new long[]{0x0000000001EE3000L});
+	public static final BitSet FOLLOW_variable_in_variable148 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_13_in_variable156 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ID_in_var_assign181 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_15_in_array_length209 = new BitSet(new long[]{0x0000000000000080L});
+	public static final BitSet FOLLOW_ID_in_array_length211 = new BitSet(new long[]{0x0000000000010000L});
+	public static final BitSet FOLLOW_16_in_array_length213 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_15_in_array_length221 = new BitSet(new long[]{0x0000000000000100L});
+	public static final BitSet FOLLOW_INT_in_array_length223 = new BitSet(new long[]{0x0000000000010000L});
+	public static final BitSet FOLLOW_16_in_array_length225 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_15_in_array_length233 = new BitSet(new long[]{0x0000000000010000L});
+	public static final BitSet FOLLOW_16_in_array_length235 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_14_in_array_assign260 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_25_in_array_assign262 = new BitSet(new long[]{0x0000000004000000L});
+	public static final BitSet FOLLOW_26_in_array_assign264 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_type_in_function_declaration293 = new BitSet(new long[]{0x0000000000000080L});
+	public static final BitSet FOLLOW_ID_in_function_declaration295 = new BitSet(new long[]{0x0000000000000200L});
+	public static final BitSet FOLLOW_9_in_function_declaration297 = new BitSet(new long[]{0x0000000001EE1400L});
+	public static final BitSet FOLLOW_function_parameters_in_function_declaration299 = new BitSet(new long[]{0x0000000000000400L});
+	public static final BitSet FOLLOW_10_in_function_declaration300 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_type_in_function_parameters324 = new BitSet(new long[]{0x0000000000000080L});
+	public static final BitSet FOLLOW_ID_in_function_parameters326 = new BitSet(new long[]{0x0000000001EE1000L});
+	public static final BitSet FOLLOW_function_parameters_in_function_parameters332 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_12_in_function_parameters340 = new BitSet(new long[]{0x0000000001EE0000L});
+	public static final BitSet FOLLOW_type_in_function_parameters342 = new BitSet(new long[]{0x0000000000000080L});
+	public static final BitSet FOLLOW_ID_in_function_parameters344 = new BitSet(new long[]{0x0000000001EE1000L});
+	public static final BitSet FOLLOW_function_parameters_in_function_parameters350 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_24_in_function_parameters358 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_25_in_function_body388 = new BitSet(new long[]{0x0000000005FE3000L});
+	public static final BitSet FOLLOW_variablePart_in_function_body390 = new BitSet(new long[]{0x0000000004100000L});
+	public static final BitSet FOLLOW_statPart_in_function_body392 = new BitSet(new long[]{0x0000000004000000L});
+	public static final BitSet FOLLOW_26_in_function_body394 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_variable_in_variablePart418 = new BitSet(new long[]{0x0000000001EE3000L});
+	public static final BitSet FOLLOW_variablePart_in_variablePart424 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_stat_in_statPart452 = new BitSet(new long[]{0x0000000000100000L});
+	public static final BitSet FOLLOW_statPart_in_statPart458 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_20_in_stat489 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_basicType_in_type505 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_basicType_in_type510 = new BitSet(new long[]{0x0000000000000800L});
+	public static final BitSet FOLLOW_11_in_type512 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_variable_in_synpred2_test41 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_function_declaration_in_synpred3_test50 = new BitSet(new long[]{0x0000000000002000L});
+	public static final BitSet FOLLOW_13_in_synpred3_test52 = new BitSet(new long[]{0x0000000000000002L});
 }

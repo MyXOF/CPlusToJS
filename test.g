@@ -13,20 +13,24 @@ program
 	;
 
 declaration
+//gobal variable declaration
 	: variable
 	{
 		System.out.println($variable.val+"\n");
 	}
+//function declaration	
 	| function_declaration ';'
 	{
 		System.out.println($function_declaration.val+";\n");
 	}
+//function implement	
 	| function_declaration function_body
 	{
 		System.out.println($function_declaration.val+$function_body.val+"\n");
 	}
 	;
-	
+
+//type a,b=xxxx,c;
 variable returns [String val]
 @init{
 	$val = null;
@@ -55,6 +59,7 @@ variable returns [String val]
 
 
 //unfinished
+//parase something like a = (a + d) / 4;
 var_assign returns [String val]
 @init{
 	$val = null;
@@ -89,6 +94,7 @@ array_length returns [String val]
 
 
 //unfinished
+//parase something like  = {1,2,3,4}
 array_assign returns [String val]
 @init{
 	$val = null;
@@ -103,6 +109,7 @@ array_assign returns [String val]
 	}
 	;
 
+// type function_name (parameters)
 function_declaration returns [String val]
 @init{
 	$val = null;
@@ -113,6 +120,7 @@ function_declaration returns [String val]
 	}
 	;
 
+// type name1,type name2
 function_parameters returns [String val]
 @init{
 	$val = null;
@@ -135,16 +143,32 @@ function_parameters returns [String val]
 	}
 	;
 
+/*
+unfinished
+something like
+{
+	int a = 1; --> variablePart
+	if(a > 1)  --> statPart
+		return;
+}
+
+*/
 function_body returns [String val]
 @init{
 	$val = null;
 }
-	: '{' variablePart'}'
+	: '{' variablePart statPart '}'
 	{
-		$val = "{\n" + $variablePart.val + "}\n";
+		$val = "{\n" + $variablePart.val + $statPart.val + "}\n";
 	}
 	;
 
+/*mutipule varable declaration
+like type a,b,c;
+     type f,x,c;
+	 ...
+	 type da,ad,a;
+*/
 variablePart returns [String val]
 @init{
 	$val = null;
@@ -159,10 +183,31 @@ variablePart returns [String val]
 	}
 	;
 
-
+statPart returns [String val]
+@init{
+	$val = null;
+}
+	: stat next_stat = statPart
+	{
+		$val = $stat.val + $next_stat.val;
+	}
+	|
+	{
+		$val = "";
+	}
+	;
 	
-
-
+//unfinished
+//add stat like if/while/for ...
+stat returns [String val]
+@int{
+	$val = null;
+}
+	: 'if'
+	{
+		$val = "";
+	}
+	;
 
 
 
