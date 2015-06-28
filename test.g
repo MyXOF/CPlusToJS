@@ -35,7 +35,7 @@ declaration
 //function implement	
 	| function_declaration function_body
 	{
-		System.out.println($function_declaration.val+$function_body.val+"\n");
+		System.out.println($function_declaration.val+$function_body.val);
 	}
 	| COMMENT
 	{
@@ -122,7 +122,7 @@ array_length returns [String val]
 	}
 	| '.size()'
 	{
-		$val = ".length()";
+		$val = ".length";
 	}
 	| '(' expressionPart ')'
 	{
@@ -210,7 +210,7 @@ function_content returns [String val]
 }
 	: variable next = function_content
 	{
-		$val = "    "+$variable.val +"\n    "+ $next.val;
+		$val = "    "+$variable.val +"\n"+ $next.val;
 	}
 	| stat next = function_content
 	{
@@ -264,7 +264,11 @@ stat returns [String val]
 @int{
 	$val = null;
 }
-	: ifStat
+	: 'cout' '<<' expression ';'
+	{
+		$val = "    console.log(" + $expression.val + ");\n";
+	}
+	| ifStat
 	{
 		$val = $ifStat.val;
 	}
@@ -326,7 +330,7 @@ elseStat returns [String val]
 }
 	: 'else' else_ifStat
 	{
-		$val = "else" + $else_ifStat.val;
+		$val = "    else" + $else_ifStat.val;
 	}
 	|
 	{

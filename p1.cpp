@@ -5,7 +5,7 @@ using namespace std;
 
 void print(string s)
 {
-	cout << s << endl;
+	cout << s+"\n" ;
 }
 
 void work(string s)
@@ -32,8 +32,9 @@ void work(string s)
 
 int main()
 {
-	string s;
-	cin >> s;
-	work(s);
+	string s1 = "abcddcba";
+	work(s1);
+	string s2 = "12dad12";
+	work(s2);
 	return 0;
 }

@@ -3,20 +3,20 @@
 
 using namespace std;
 
-int next[10001];
+int next_[10001];
 
 void build(string P)
 {
 	int m = P.size() - 1;
 	int k = 0;
-	next[1] = 0;
+	next_[1] = 0;
 	for (int q = 2; q <= m; ++q)
 	{
 		while (k > 0 && P[k + 1] != P[q])
-			k = next[k];
+			k = next_[k];
 		if (P[k + 1] == P[q])
 			k++;
-		next[q] = k;
+		next_[q] = k;
 	}
 }
 
@@ -37,7 +37,7 @@ void work(string s, string t)
 	for (int i = 1; i <= n; ++i)
 	{
 		while (q > 0 && t[q + 1] != s[i])
-			q = next[q];
+			q = next_[q];
 		if (t[q + 1] == s[i])
 			q++;
 		if (q == m)
@@ -49,22 +49,24 @@ void work(string s, string t)
 			}
 			else
 			{
-				cout << ',' << i - m;
+				cout << ',' ;
+				cout << i - m;
 			}
-			q = next[q];
+			q = next_[q];
 		}
 	}
 	if (fb)
 	{
 		cout << "False";
 	}
-	cout << endl;
+	cout << "\n";
 }
 
 int main()
 {
 	string s, t;
-	cin >> s >> t;
+	s = "fddfsaffdasfsfasdsassdasd";
+	t = "sd";
 	work(s, t);
 	return 0;
 }

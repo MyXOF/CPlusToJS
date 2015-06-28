@@ -8,6 +8,31 @@ double numS[1000];
 int operP, numP;
 int prior[128];
 
+
+int char_int(char c)
+{
+	if(c == '0')
+		return 0;
+	if(c == '1')
+		return 1;
+	if(c == '2')
+		return 2;
+	if(c == '3')
+		return 3;
+	if(c == '4')
+		return 4;
+	if(c == '5')
+		return 5;
+	if(c == '6')
+		return 6;
+	if(c == '7')
+		return 7;
+	if(c == '8')
+		return 8;
+	if(c == '9')
+		return 9;
+}
+
 void init()
 {
 	operP = 1;
@@ -99,11 +124,11 @@ int ProcessOper(char oper)
 void printErr(int code)
 {
 	if (code == 1)
-		cout << "Error: Too many operators" << endl;
+		cout << "Error: Too many operators\n";
 	if (code == 2)
-		cout << "Error: Bracket not match" << endl;
+		cout << "Error: Bracket not match\n";
 	if (code == 3)
-		cout << "Error: Divided by 0" << endl;
+		cout << "Error: Divided by 0\n";
 	return ;
 }
 
@@ -134,7 +159,7 @@ void work(string s)
 	{
 		if (isDigit(s[i]))
 		{
-			number = number * 10 + s[i] - '0';
+			number = number * 10 + char_int(s[i]) - 0;
 			state = 1;
 			continue;
 		}
@@ -182,14 +207,15 @@ void work(string s)
 	}
 	else
 	{
-		cout << numS[0] << endl;
+		cout << numS[0];
+		cout << "\n";
 	}
 }
 
 int main()
 {
 	string s;
-	cin >> s;
+	s = "32+7*(4-15)/2";
 	work(s);
 	return 0;
 }
