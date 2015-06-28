@@ -254,9 +254,21 @@ stat returns [String val]
 	{
 		$val = $expression.val + ";\n";
 	}
+	| var_init ';'
+	{
+		$val = $var_init.val;
+	}
 	| COMMENT
 	{
 		$val = $COMMENT.text;
+	}
+	| 'break'
+	{
+		$val = "break";
+	}
+	| 'continue'
+	{
+		$val = "continue";
 	}
 	| ';'
 	{
