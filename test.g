@@ -114,6 +114,10 @@ array_length returns [String val]
 	{
 		$val = ".length()";
 	}
+	| '(' expressionPart ')'
+	{
+		$val = "(" + $expressionPart.val + ")";
+	}
 	|
 	{
 		$val = "";
@@ -184,9 +188,27 @@ function_body returns [String val]
 @init{
 	$val = null;
 }
-	: '{' variablePart statPart '}'
+	: '{' function_content '}'
 	{
-		$val = "{\n" + $variablePart.val + $statPart.val + "}\n";
+		$val = "{\n" + $function_content.val + "}\n";
+	}
+	;
+
+function_content returns [String val]
+@init{
+	$val = null;
+}
+	: variable next = function_content
+	{
+		$val = $variable.val + $next.val;
+	}
+	| stat next = function_content
+	{
+		$val = $stat.val + $next.val;
+	}
+	|
+	{
+		$val = "";
 	}
 	;
 
@@ -246,9 +268,9 @@ stat returns [String val]
 	{
 		$val = $returnStat.val + "\n";
 	}
-	| functioncallStat
+	| functioncallStat ';'
 	{
-		$val = $functioncallStat.val;
+		$val = $functioncallStat.val + ";\n";
 	}
 	| expression ';'
 	{
@@ -256,7 +278,7 @@ stat returns [String val]
 	}
 	| var_init ';'
 	{
-		$val = $var_init.val;
+		$val = $var_init.val+";\n";
 	}
 	| COMMENT
 	{
@@ -319,7 +341,7 @@ forStat returns [String val]
 @init{
 	$val = null;
 }
-	: 'for' '('a = expression_for ';' b = expression ';' c = expression ')' statement
+	: 'for' '('a = expression_for ';' b = expressionPart ';' c = expressionPart ')' statement
 	{
 		$val = "for(" + $a.val + ";" + $b.val + ";" + $c.val + ")" + $statement.val + "\n";
 	}
@@ -331,7 +353,7 @@ expression_for returns [String val]
 }
 	: type var_init
 	{
-		$val = $type.text + $var_init.val;
+		$val = "var " + $var_init.val;
 	}
 	| var_init
 	{
@@ -343,13 +365,13 @@ whileStat returns [String val]
 @init{
 	$val = null;
 }
-	: 'while' '(' expression ')' statement
+	: 'while' '(' expressionPart ')' statement
 	{
-		$val = "while (" + $expression.val + ")" + $statement.val;
+		$val = "while (" + $expressionPart.val + ")" + $statement.val;
 	}
-	| 'do' statement 'while' '(' expression ')'
+	| 'do' statement 'while' '(' expressionPart ')'
 	{
-		$val = "do" + $statement.val + "while (" + $expression.val + ")\n";
+		$val = "do" + $statement.val + "while (" + $expressionPart.val + ")\n";
 	}
 	;
 
@@ -367,9 +389,9 @@ functioncallStat returns [String val]
 @init{
 	$val = null;
 }
-	: ID '(' expressionPart ')' ';'
+	: ID '(' expressionPart ')' 
 	{
-		$val = $ID.text + "(" + $expressionPart.val + ");\n";
+		$val = $ID.text + "(" + $expressionPart.val + ")";
 	}
 	;
 
@@ -377,9 +399,9 @@ statement returns [String val]
 @init{
 	$val = null;
 }
-	: '{' variablePart statPart '}'
+	: '{' function_content '}'
 	{
-		$val = "{\n" + $variablePart.val + $statPart.val + "\n;";
+		$val = "{\n" + $function_content.val + "\n;";
 	}
 	| stat
 	{

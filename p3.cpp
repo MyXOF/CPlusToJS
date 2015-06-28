@@ -27,7 +27,7 @@ void init()
 double Abs(double k)
 {
 	if (k < 0)
-		return -k;
+		return 0-k;
 	return k;
 }
 
