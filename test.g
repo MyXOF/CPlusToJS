@@ -11,8 +11,6 @@ options {
 
 program
 	: declaration+
-	| include+
-	| namespace+
 	;
 
 include
@@ -43,6 +41,14 @@ declaration
 	{
 		System.out.println($COMMENT.text);
 	}
+	| include
+	{
+
+	}
+	| namespace
+	{
+
+	}
 	;
 
 //unfinished
@@ -52,9 +58,13 @@ variable returns [String val]
 @init{
 	$val = null;
 }
-	: type var_init ';'
+	: type ID '[' INT ']' ';'
 	{
-		$val = "var " + $var_init.val + ";\n";
+		$val = "var " + $ID.text + "= new Array("+ $INT.text + ");";
+	}
+	| type var_init ';'
+	{
+		$val = "var " + $var_init.val + ";";
 	}
 	;
 
@@ -124,13 +134,13 @@ array_length returns [String val]
 	}
 	;
 
-//unfinished
-//parase something like  = {1,2,3,4}
+//un-used
+//parase something like  = {1-5,2*44,3,4}
 array_assign returns [String val]
 @init{
 	$val = null;
 }
-	: '=' '{' '}'
+	: '=' '{' expressionPart '}'
 	{
 		$val = "";
 	}
@@ -200,17 +210,19 @@ function_content returns [String val]
 }
 	: variable next = function_content
 	{
-		$val = $variable.val + $next.val;
+		$val = "    "+$variable.val +"\n    "+ $next.val;
 	}
 	| stat next = function_content
 	{
-		$val = $stat.val + $next.val;
+		$val = "    "+$stat.val +$next.val;
 	}
 	|
 	{
 		$val = "";
 	}
 	;
+
+
 
 /*mutipule varable declaration
 like type a,b,c;
@@ -286,15 +298,15 @@ stat returns [String val]
 	}
 	| 'break'
 	{
-		$val = "break";
+		$val = "    break";
 	}
 	| 'continue'
 	{
-		$val = "continue";
+		$val = "    continue";
 	}
 	| ';'
 	{
-		$val = ";\n";
+		$val = "    ;\n";
 	}
 	;
 
@@ -304,7 +316,7 @@ ifStat returns [String val]
 }
 	: 'if' '(' expressionPart ')' statement elseStat
 	{
-		$val = "if (" + $expressionPart.val + ")" + $statement.val + $elseStat.val;
+		$val = "if (" + $expressionPart.val + ")\n    " + $statement.val + $elseStat.val;
 	}
 	;
 
@@ -343,7 +355,7 @@ forStat returns [String val]
 }
 	: 'for' '('a = expression_for ';' b = expressionPart ';' c = expressionPart ')' statement
 	{
-		$val = "for(" + $a.val + ";" + $b.val + ";" + $c.val + ")" + $statement.val + "\n";
+		$val = "for(" + $a.val + ";" + $b.val + ";" + $c.val + ")\n    " + $statement.val + "\n";
 	}
 	;
 
@@ -367,11 +379,11 @@ whileStat returns [String val]
 }
 	: 'while' '(' expressionPart ')' statement
 	{
-		$val = "while (" + $expressionPart.val + ")" + $statement.val;
+		$val = "while (" + $expressionPart.val + ")\n    " + $statement.val;
 	}
 	| 'do' statement 'while' '(' expressionPart ')'
 	{
-		$val = "do" + $statement.val + "while (" + $expressionPart.val + ")\n";
+		$val = "do\n    " + $statement.val + "while (" + $expressionPart.val + ")\n";
 	}
 	;
 
@@ -381,7 +393,7 @@ returnStat returns [String val]
 }
 	: 'return' expression ';'
 	{
-		$val = "return" + $expression.val + ";";
+		$val = "return " + $expression.val + " ;";
 	}
 	;
 
@@ -401,11 +413,11 @@ statement returns [String val]
 }
 	: '{' function_content '}'
 	{
-		$val = "{\n" + $function_content.val + "\n;";
+		$val = "{\n    " + $function_content.val + "    }\n";
 	}
 	| stat
 	{
-		$val = $stat.val;
+		$val = "    "+$stat.val;
 	}
 	;
 
