@@ -1,3 +1,8 @@
+/*
+	Lasted modified : 2015.6.29
+	Author			: Xu Yi
+*/
+
 grammar test;
 
 options {
@@ -8,7 +13,7 @@ options {
 @members {
 	
 }
-
+//program entrance cannot be deleted
 program
 	: declaration+
 	;
@@ -51,7 +56,6 @@ declaration
 	}
 	;
 
-//unfinished
 //variable declable and init
 //type a,b=xxxx,c;
 variable returns [String val]
@@ -161,7 +165,7 @@ function_declaration returns [String val]
 	}
 	;
 
-// type name1,type name2
+// type name1,type name2...
 function_parameters returns [String val]
 @init{
 	$val = null;
@@ -185,7 +189,6 @@ function_parameters returns [String val]
 	;
 
 /*
-unfinished
 something like
 {
 	int a = 1; --> variablePart
@@ -204,6 +207,8 @@ function_body returns [String val]
 	}
 	;
 
+
+//function body contains various variable and stat, their orders are not sure
 function_content returns [String val]
 @init{
 	$val = null;
@@ -258,13 +263,12 @@ statPart returns [String val]
 	}
 	;
 	
-//unfinished
 //add stat like if/while/for ...
 stat returns [String val]
 @int{
 	$val = null;
 }
-	: 'cout' '<<' expression ';'
+	: 'cout' '<<' expression ';' // only suport C++
 	{
 		$val = "    console.log(" + $expression.val + ");\n";
 	}
@@ -424,9 +428,6 @@ statement returns [String val]
 		$val = "    "+$stat.val;
 	}
 	;
-
-
-
 
 expressionPart returns [String val]
 @init{
